@@ -1,0 +1,49 @@
+INTERLIS 2.3;
+
+/** !!------------------------------------------------------------------------------
+ *  !! Version    | wer | Änderung
+ *  !!------------------------------------------------------------------------------
+ *  !! 2021-05-26 | sz  | Ersterfassung
+ *  !!==============================================================================
+ */
+!!@ technicalContact=mailto:agi@bd.so.ch
+!!@ furtherInformation=http://geo.so.ch/models/ALW/SO_ALW_Bienenstandorte_20210526.uml
+MODEL SO_ALW_Bienenstandorte_20210526 (de)
+AT "https://alw.so.ch"
+VERSION "2021-05-26"  =
+  IMPORTS GeometryCHLV95_V1;
+
+  TOPIC Bienenstandorte =
+    OID AS INTERLIS.UUIDOID;
+
+    /** Bienenstandort (public)
+     */
+    CLASS Bienenstandort =
+      /** Nummer
+       */
+      Nummer : MANDATORY TEXT*16;
+      /** Standort
+       */
+      Standort : MANDATORY GeometryCHLV95_V1.Coord2;
+      /** Bemerkung
+       */
+      Bemerkung : TEXT*200;
+    END Bienenstandort;
+
+  END Bienenstandorte;
+
+  TOPIC Bienenstandorte_protected
+  EXTENDS SO_ALW_Bienenstandorte_20210526.Bienenstandorte =
+
+    CLASS Bienenstandort (EXTENDED) =
+      /** Name des Eigentümers
+       */
+      Name : MANDATORY TEXT*100;
+      /** Telefonnummer
+       */
+      Telefonnummer : TEXT*20;
+    END Bienenstandort;
+
+  END Bienenstandorte_protected;
+
+END SO_ALW_Bienenstandorte_20210526.
