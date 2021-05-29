@@ -1,0 +1,60 @@
+INTERLIS 2.3;
+
+/** !!------------------------------------------------------------------------------
+ *  !! Version    | wer | Änderung
+ *  !!------------------------------------------------------------------------------
+ *  !! 2021-05-29 | sz  | Ersterfassung
+ *  !!==============================================================================
+ */
+!!@ technicalContact=mailto:agi@bd.so.ch
+!!@ furtherInformation=http://geo.so.ch/models/ALW/SO_ALW_Bienenstandorte_20210526.uml
+MODEL SO_ALW_Bienenstandorte_20210529 (de)
+AT "https://alw.so.ch"
+VERSION "2021-05-26"  =
+  IMPORTS GeometryCHLV95_V1;
+
+  TOPIC Bienenstandorte =
+    OID AS INTERLIS.UUIDOID;
+
+    /** Bienenstandort (public)
+     */
+    CLASS Bienenstandort =
+      /** Nummer
+       */
+      Nummer : MANDATORY TEXT*16;
+      /** Standort
+       */
+      Standort : MANDATORY GeometryCHLV95_V1.Coord2;
+      /** Bemerkung
+       */
+      Bemerkung : TEXT*200;
+    END Bienenstandort;
+
+  END Bienenstandorte;
+
+END SO_ALW_Bienenstandorte_20210529.
+
+/** Bienenstandorte mit nicht-öffentlichen Informationen.
+ */
+MODEL SO_ALW_Bienenstandorte_protected_20210529 (de)
+AT "mailto:stefan@localhost"
+VERSION "2021-05-29"  =
+  IMPORTS SO_ALW_Bienenstandorte_20210529;
+
+  TOPIC Bienenstandorte
+  EXTENDS SO_ALW_Bienenstandorte_20210529.Bienenstandorte =
+
+    /** Bienenstandort mit allen (inkl. nicht-öffentlichen) Attributen.
+     */
+    CLASS Bienenstandort (EXTENDED) =
+      /** Name des Imkers
+       */
+      Name : MANDATORY TEXT*255;
+      /** Telefonnummer
+       */
+      Telefonnummer : TEXT*20;
+    END Bienenstandort;
+
+  END Bienenstandorte;
+
+END SO_ALW_Bienenstandorte_protected_20210529.

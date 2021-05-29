@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TRANSFER xmlns="http://www.interlis.ch/INTERLIS2.3">
+  <HEADERSECTION SENDER="ili2pg-4.5.0-fc023c8d2d8cd44d792927e45dc80c1ad973f095" VERSION="2.3">
+    <MODELS>
+      <MODEL NAME="SO_ALW_Bienenstandorte_20210529" VERSION="2021-05-26" URI="https://alw.so.ch"/>
+    </MODELS>
+  </HEADERSECTION>
+  <DATASECTION>
+    <SO_ALW_Bienenstandorte_20210529.Bienenstandorte BID="100">
+      <SO_ALW_Bienenstandorte_20210529.Bienenstandorte.Bienenstandort TID="5eefbd5d-5fdf-476b-9195-b5a98709eadf">
+        <Nummer>1234</Nummer>
+        <Standort>
+          <COORD>
+            <C1>2607958.294</C1>
+            <C2>1229442.422</C2>
+          </COORD>
+        </Standort>
+        <Bemerkung>ich bin die Bemerkung</Bemerkung>
+      </SO_ALW_Bienenstandorte_20210529.Bienenstandorte.Bienenstandort>
+    </SO_ALW_Bienenstandorte_20210529.Bienenstandorte>
+  </DATASECTION>
+</TRANSFER>
